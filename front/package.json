@@ -5,10 +5,12 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
     "react-scripts": "3.0.1"
   },
   "scripts": {
     "precommit": "lint-staged",
+    "lint": "npx eslint --fix src/**/*.js*",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

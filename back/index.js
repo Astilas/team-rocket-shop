@@ -1,6 +1,15 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+// Init body parser middleware
+// app.use(express.json({ extended: false }))
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 const port = process.env.PORT || 5000;
 app.listen(port, (err) => {
@@ -11,4 +20,3 @@ app.listen(port, (err) => {
   }
 });
 
-require('fs');
