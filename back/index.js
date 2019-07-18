@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-require('dotenv').config();
+require('./env');
+
+const authRouter = require('./routes/auth');
 
 const app = express();
 
@@ -18,7 +20,7 @@ const port = process.env.PORT || 5000;
 
 app.use('/api', require('./routes/getPokemonList'));
 app.use('/api', require('./routes/postUserInfos'));
-
+app.use('/api/auth', authRouter);
 
 app.listen(port, (err) => {
   if (err) {
