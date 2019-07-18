@@ -25,5 +25,9 @@
     "hooks": {
       "pre-commit": "npx lerna run --concurrency 1 --stream precommit"
     }
+  },
+  "dependencies": {
+    "react-dom": "^16.8.6",
+    "reactstrap": "^8.0.1"
   }
 }
