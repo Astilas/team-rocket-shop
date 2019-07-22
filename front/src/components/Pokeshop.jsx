@@ -53,6 +53,7 @@ class Pokeshop extends React.Component {
                   <PokeList
                     image={singlePokemon.image}
                     name={singlePokemon.pokemon_name}
+                    price={singlePokemon.price}
                   />
                 </Grid.Column>
               ))
@@ -61,6 +62,7 @@ class Pokeshop extends React.Component {
         </Grid>
         <Grid className="App">
           <Pagination
+            className="pokeshop-pagination"
             defaultActivePage={1}
             firstItem={null}
             lastItem={null}

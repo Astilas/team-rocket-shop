@@ -14,6 +14,6 @@ body {
   margin-bottom: 60px !important;
 }
 
-.ui.secondary.pointing.menu{
-  background-color:white !important;
+.pokeshop-pagination.ui.pagination.secondary.pointing.menu{
+  background-color:white;
 }

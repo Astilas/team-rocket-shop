@@ -1,4 +1,10 @@
-CREATE DATABASE pokemondb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER myuser@localhost IDENTIFIED BY 'mypass';
-GRANT ALL PRIVILEGES ON pokemondb.* TO myuser@localhost;
+CREATE DATABASE zone51 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER myuser@localhost IDENTIFIED BY 'Zone51Hackathon';
+GRANT ALL PRIVILEGES ON zone51.* TO myuser@localhost;
 FLUSH PRIVILEGES;
+
+
+-- CREATE DATABASE IF NOT EXISTS zone51 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- CREATE USER IF NOT EXISTS myuser@localhost IDENTIFIED BY 'Zone51Hackathon';
+-- GRANT ALL PRIVILEGES ON zone51.* TO myuser@localhost;
+-- FLUSH PRIVILEGES;

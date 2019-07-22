@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Grid, Card, Image, Button } from 'semantic-ui-react';
 
 class PokeList extends React.Component {
   constructor(props) {
@@ -9,16 +9,25 @@ class PokeList extends React.Component {
   }
 
   render() {
-    const { name, image } = this.props;
+    const { name, image, price } = this.props;
     return (
       <Card>
         <Image src={image} alt={name} wrapped ui={false} />
         <Card.Content>
           <Card.Header>{name}</Card.Header>
           <Card.Description>
-            {name}
-            {' '}
-            is a strong pokemon
+            <Grid.Row>
+              {name}
+              <br />
+              <br />
+              is a strong pokemon
+              <Grid.Column>
+                <Button color="primary">
+                  {price}
+                  $
+                </Button>
+              </Grid.Column>
+            </Grid.Row>
           </Card.Description>
         </Card.Content>
       </Card>

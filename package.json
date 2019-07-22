@@ -27,6 +27,7 @@
     }
   },
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "react-dom": "^16.8.6",
     "reactstrap": "^8.0.1"
   }
