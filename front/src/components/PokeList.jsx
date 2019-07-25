@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Card, Image, Button } from 'semantic-ui-react';
+import splitNumbers from '../functions/splitNumbers';
 
 class PokeList extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class PokeList extends React.Component {
   }
 
   render() {
-    const { name, image, price } = this.props;
+    const { name, image, price, postCommandsInfos, id } = this.props;
     return (
       <Card>
         <Image src={image} alt={name} wrapped ui={false} />
@@ -22,8 +23,12 @@ class PokeList extends React.Component {
               <br />
               is a strong pokemon
               <Grid.Column>
-                <Button color="primary">
-                  {price}
+                <Button
+                  onClick={() => postCommandsInfos(id)}
+                  className="marginButtonPrice"
+                  color="primary"
+                >
+                  {splitNumbers(price)}
                   $
                 </Button>
               </Grid.Column>

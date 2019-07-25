@@ -10,8 +10,12 @@ body {
   color: white;
 }
 
-.margin{
+.marginCard{
   margin-bottom: 60px !important;
+}
+
+.marginButtonPrice {
+  margin-top: 20px !important;
 }
 
 .pokeshop-pagination.ui.pagination.secondary.pointing.menu{

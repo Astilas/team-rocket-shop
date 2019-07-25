@@ -70,6 +70,8 @@ const port = process.env.PORT || 5000;
 
 app.use('/api', require('./routes/getPokemonList'));
 app.use('/api', require('./routes/postUserInfos'));
+app.use('/api', require('./routes/getUserId'));
+app.use('/api', require('./routes/postProductsCommands'));
 
 app.use('/api/auth', authRouter);
 app.use('/api/posts', postRouter);

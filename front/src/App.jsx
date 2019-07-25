@@ -46,9 +46,9 @@ class App extends React.Component {
               />
             )
         }
-        <Route path="/signin" exact render={props => <SignIn {...props} setToken={this.setToken} />} />
+        {/* <Route path="/signin" exact render={props => <SignIn {...props} setToken={this.setToken} />} /> */}
         <Route path="/signup" exact component={SignUp} />
-        <Route path="/shop" exact component={Pokeshop} />
+        <Route path="/shop" exact render={props => <Pokeshop {...props} setToken={this.setToken} />} />
         <Route path="/shopping-cart" component={SignUp} />
         {/* <NavBar token={token} /> */}
 

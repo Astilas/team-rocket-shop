@@ -10,13 +10,17 @@ class Pokeshop extends React.Component {
     this.state = {
       pokemonData: [],
       currentPage: 1,
+      userInfos: [],
     };
     this.changePage = this.changePage.bind(this);
+    this.postCommandsInfos = this.postCommandsInfos.bind(this)
   }
 
   componentDidMount() {
     this.getAllPokemonData();
+    this.getUserInfos();
   }
+
 
   getAllPokemonData() {
     axios.get('/api/pokemons')
@@ -26,10 +30,28 @@ class Pokeshop extends React.Component {
       });
   }
 
+  getUserInfos() {
+    axios.get('/api/users')
+      .then(response => (response.data))
+      .then((data) => {
+        this.setState({ userInfos: data });
+      });
+  }
+
   changePage(event, { activePage }) {
     this.setState({
       currentPage: activePage,
     });
+  }
+
+  postCommandsInfos(productId) {
+    const { userInfos } = this.state;
+    axios.post('/api/commands',
+      {
+        productId,
+        userId: userInfos.id,
+      })
+      .then(response => (response.data));
   }
 
   render() {
@@ -49,11 +71,13 @@ class Pokeshop extends React.Component {
             {
               pokemonData
               && pokemonData.slice(start, end).map(singlePokemon => (
-                <Grid.Column className="margin" key={singlePokemon.id}>
+                <Grid.Column className="marginCard" key={singlePokemon.id}>
                   <PokeList
                     image={singlePokemon.image}
                     name={singlePokemon.pokemon_name}
                     price={singlePokemon.price}
+                    id={singlePokemon.id}
+                    postCommandsInfos={this.postCommandsInfos}
                   />
                 </Grid.Column>
               ))
@@ -72,19 +96,6 @@ class Pokeshop extends React.Component {
             onPageChange={this.changePage}
           />
         </Grid>
-
-        {/* {
-          pokemonData.length > 0
-          && pokemonData.map(singlePokemon => (
-            <div>
-              <img src={singlePokemon.image} alt={singlePokemon.pokemon_name} />
-              <div>
-                {singlePokemon.pokemon_name}
-              </div>
-            </div>
-
-          ))
-        } */}
       </Container>
 
     );

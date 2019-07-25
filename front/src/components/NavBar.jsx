@@ -19,6 +19,11 @@ export default class NavBar extends Component {
   //   redirection();
   // };
 
+  removeToken(){
+    localStorage.removeItem('token')
+    this.setState({ token: ''})
+  }
+
   render() {
     const { activeItem } = this.state;
     const { token } = this.props;
@@ -40,6 +45,7 @@ export default class NavBar extends Component {
             active={activeItem === 'shopping cart'}
             onClick={this.handleItemClick}
           />
+          <Menu.Item name='log out' active={activeItem === 'log out'} onClick={this.removeToken} />
         </Menu>
         {/* <Button
             label="Log out"
